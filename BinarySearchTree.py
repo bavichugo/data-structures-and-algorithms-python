@@ -101,6 +101,7 @@ class TreeNode:
         postorder(root)
         return res
 
+    # Another way to do pre in post order traversal with arrays
     # def pre_order_traversal_arr(self, root):
     #     res = []
     #     if root:
