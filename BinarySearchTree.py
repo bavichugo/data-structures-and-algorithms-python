@@ -67,7 +67,7 @@ class TreeNode:
             self.post_order_traversal_print(root.right)
             print(root.val)
     
-    # Adding values to array and returning them in the end
+    # Traversal adding node values to array and returing the array at the end
     def pre_order_traversal_arr(self, root):
         res = []
         if root:
@@ -92,25 +92,25 @@ class TreeNode:
             res.append(root.val)
         return res
 
+if __name__ == "__main__":
+    # Creating Tree and adding nodes
+    head = TreeNode(50)
+    for i in range(5):
+        head.add_value(head, randint(0, 100))
 
-# Creating Tree and adding nodes
-head = TreeNode(50)
-for i in range(5):
-    head.add_value(head, randint(0, 100))
+    # Preoder
+    print('Preorder')
+    head.pre_order_traversal_print(head)
+    print(head.pre_order_traversal_arr(head), end='\n\n')
 
-# Preoder
-print('Preorder')
-head.pre_order_traversal_print(head)
-print(head.pre_order_traversal_arr(head), end='\n\n')
+    # Inorder
+    print('Inorder')
+    head.in_order_traversal_print(head)
+    print(head.in_order_traversal_arr(head), end='\n\n')
 
-# Inorder
-print('Inorder')
-head.in_order_traversal_print(head)
-print(head.in_order_traversal_arr(head), end='\n\n')
+    # Postorder
+    print('Postorder')
+    head.post_order_traversal_print(head)
+    print(head.post_order_traversal_arr(head), end='\n\n')
 
-# Postorder
-print('Postorder')
-head.post_order_traversal_print(head)
-print(head.post_order_traversal_arr(head), end='\n\n')
-
-head.search(head, 50)
+    head.search(head, 50)
