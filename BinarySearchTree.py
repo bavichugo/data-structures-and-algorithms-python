@@ -70,27 +70,60 @@ class TreeNode:
     # Traversal adding node values to array and returing the array at the end
     def pre_order_traversal_arr(self, root):
         res = []
-        if root:
-            res.append(root.val)
-            res += self.pre_order_traversal_arr(root.left)
-            res += self.pre_order_traversal_arr(root.right)
-        return res
 
+        def preorder(root):
+            if root:
+                res.append(root.val)
+                preorder(root.left)
+                preorder(root.right)
+        preorder(root)
+        return res
+    
     def in_order_traversal_arr(self, root):
         res = []
-        if root:
-            res += self.in_order_traversal_arr(root.left)
-            res.append(root.val)
-            res += self.in_order_traversal_arr(root.right)
-        return res
 
+        def inorder(root):
+            if root:
+                inorder(root.left)
+                res.append(root.val)
+                inorder(root.right)
+        inorder(root)
+        return res
+    
     def post_order_traversal_arr(self, root):
         res = []
-        if root:
-            res += self.post_order_traversal_arr(root.left)
-            res += self.post_order_traversal_arr(root.right)
-            res.append(root.val)
+
+        def postorder(root):
+            if root:
+                postorder(root.left)
+                postorder(root.right)
+                res.append(root.val)
+        postorder(root)
         return res
+
+    # def pre_order_traversal_arr(self, root):
+    #     res = []
+    #     if root:
+    #         res.append(root.val)
+    #         res += self.pre_order_traversal_arr(root.left)
+    #         res += self.pre_order_traversal_arr(root.right)
+    #     return res
+
+    # def in_order_traversal_arr(self, root):
+    #     res = []
+    #     if root:
+    #         res += self.in_order_traversal_arr(root.left)
+    #         res.append(root.val)
+    #         res += self.in_order_traversal_arr(root.right)
+    #     return res
+
+    # def post_order_traversal_arr(self, root):
+    #     res = []
+    #     if root:
+    #         res += self.post_order_traversal_arr(root.left)
+    #         res += self.post_order_traversal_arr(root.right)
+    #         res.append(root.val)
+    #     return res
 
 if __name__ == "__main__":
     # Creating Tree and adding nodes
